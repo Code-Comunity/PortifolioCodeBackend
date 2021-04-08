@@ -1,6 +1,10 @@
 import mongoose from "mongoose"
 
 const PostSchema = new mongoose.Schema({
+    nameProject:{
+        type: String, 
+        required: true
+    },
     description:{
         type: String, 
         required: true
