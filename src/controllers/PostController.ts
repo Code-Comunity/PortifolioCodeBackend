@@ -5,13 +5,14 @@ class PostController {
 
     async CreatePost( Req: Request, Res: Response ) {
 
-        const { nameProject, description, justification, imageOne, imageTwo, imageThree } = Req.body
+        const { nameProject, logoProject, description, justification, imageOne, imageTwo, imageThree } = Req.body
 
         try{
 
             await Post.create({
                 
                 nameProject: nameProject,
+                logoProject: logoProject,
                 description: description,
                 justification: justification,
                 imageOne: imageOne,
@@ -30,8 +31,6 @@ class PostController {
     }
 
     async FindPost(Req:Request, Res: Response){
-        
-        const { id } = Req.body
            
         try{
           
@@ -47,13 +46,14 @@ class PostController {
 
     async UpdatePost(Req:Request, Res: Response){
 
-        const { id,nameProject, description, justification, imageOne, imageTwo, imageThree } = Req.body
+        const { id,nameProject,logoProject, description, justification, imageOne, imageTwo, imageThree } = Req.body
 
         try {
             
             await Post.updateOne({_id: id},{
                 $set: {
                     nameProject: nameProject,
+                    logoProject: logoProject,
                     description: description,
                     justification: justification,
                     imageOne: imageOne,
