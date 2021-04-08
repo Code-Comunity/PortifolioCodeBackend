@@ -26,7 +26,7 @@ class AuthController {
     }
 
   }
-User
+
 }
 
 export default new AuthController()

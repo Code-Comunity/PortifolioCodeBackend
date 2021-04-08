@@ -9,7 +9,7 @@ class PostController {
 
         try{
 
-            const NewPost: any = await Post.create({
+            await Post.create({
                 
                 nameProject: nameProject,
                 description: description,
