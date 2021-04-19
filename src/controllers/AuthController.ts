@@ -3,6 +3,36 @@ import User from '../models/User'
 
 class AuthController {
 
+  //criando usuario
+  async CreateUser(Req:Request, Res: Response){
+    const { username, password } = Req.body
+
+    try{
+      await User.create({
+        username: username,
+        password: password
+      })
+      return Res.status(200).send({ message: `Usuario criado` })
+    }catch(error){
+      return Res.status(401).send({ message: `Não foi possivel criar usuário` })
+    }
+  }
+
+  //deletando usuário
+  async DeleteUser(Req:Request, Res: Response){
+    const id = Req.params
+
+    try{
+
+      await User.deleteOne({"_id" : id}) 
+               
+      return Res.status(200).send({ message: "Usuário deletado" })
+
+    }catch(error){
+        return Res.status(401).send({ message: `Desculpe, mas não foi possivel deletar usuário!` })
+    }
+  }
+
   //Metodos
   async Authenticate( Req: Request, Res: Response ) {
 
