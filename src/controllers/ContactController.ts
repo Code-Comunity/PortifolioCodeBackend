@@ -41,6 +41,19 @@ class ContactController {
         }
     }
 
+    async DeleteMessage(Req:Request, Res: Response){
+        const id = Req.params
+        
+        try{
+
+          await Contact.deleteOne({"_id" : id})          
+          return Res.status(200).send({ message: "Mensagem deletada" })
+
+        }catch(error){
+            return Res.status(401).send({ message: `Desculpe, mas não foi possivel deletar a mensagem!` })
+        }
+    }
+
 }
 
 export default new ContactController

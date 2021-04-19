@@ -46,11 +46,12 @@ class PostController {
 
     async UpdatePost(Req:Request, Res: Response){
 
-        const { id,nameProject,logoProject, description, justification, imageOne, imageTwo, imageThree } = Req.body
+        const id = Req.params
+        const { nameProject,logoProject, description, justification, imageOne, imageTwo, imageThree } = Req.body
 
         try {
             
-            await Post.updateOne({_id: id},{
+            await Post.updateOne({"_id": id},{
                 $set: {
                     nameProject: nameProject,
                     logoProject: logoProject,
@@ -72,11 +73,11 @@ class PostController {
     }
 
     async DeletePost(Req:Request, Res: Response){
-        const { id } = Req.body
+        const id = Req.params
         
         try{
 
-          await Post.deleteOne({_id: id})          
+          await Post.deleteOne({"_id" : id})          
           return Res.status(200).send({ message: "Post deletado" })
 
         }catch(error){

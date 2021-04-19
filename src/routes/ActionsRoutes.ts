@@ -1,16 +1,19 @@
 import { Router } from 'express'
 import PostController from '../controllers/PostController'
+import ContactController from '../controllers/ContactController'
 
 const ActionsRoutes = Router()
 
 // All of Posts
-ActionsRoutes.get('/api/allposts', PostController.FindPost)
-ActionsRoutes.post('/api/createpost', PostController.CreatePost )
-ActionsRoutes.delete('/api/deletepost', PostController.DeletePost)
-ActionsRoutes.put('/api/editpost', PostController.UpdatePost)
+ActionsRoutes.get('/api/allposts', PostController.FindPost) //Testado
+ActionsRoutes.post('/api/createpost', PostController.CreatePost ) //Testado
+ActionsRoutes.delete('/api/deletepost/:_id', PostController.DeletePost) //Testado
+ActionsRoutes.put('/api/editpost/:_id', PostController.UpdatePost) //Testado
 
 // All of Contact
-ActionsRoutes.get('/api/getallmessages', )
-ActionsRoutes.post('/api/sendmessage', )
-ActionsRoutes.delete('/api/deletemessage', )
-ActionsRoutes.put('/api/editmessage/:_id', )
+ActionsRoutes.get('/api/getallmessages', ContactController.FindMessage) //testado
+ActionsRoutes.post('/api/sendmessage', ContactController.CreateMessage) //testado
+ActionsRoutes.delete('/api/deletemessage/:_id',ContactController.DeleteMessage) //testado
+
+
+export default ActionsRoutes

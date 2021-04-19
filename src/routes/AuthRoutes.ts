@@ -5,3 +5,4 @@ const AuthRouter = Router()
 
 AuthRouter.post('/api/adminauth', authController.Authenticate)
 
+export default AuthRouter
