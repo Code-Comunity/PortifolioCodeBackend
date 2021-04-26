@@ -6,9 +6,11 @@ import AuthRoutes  from './routes/AuthRoutes'
 const app = express()
 
 app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+
 app.use(ActionsRoutes)
 app.use(AuthRoutes)
-app.use(express.urlencoded({ extended: true }))
+
 app.use(cors())
 
 app.listen(8080)

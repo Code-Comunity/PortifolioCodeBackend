@@ -17,6 +17,8 @@
     "ts-node-dev": "^1.1.6"
   },
   "scripts": {
-    "start": "tsnd --transpile-only --respawn --ignore-watch node_modules src/start.ts"
+    "start": "node dist/start.js",
+    "dev": "tsnd --transpile-only --respawn --ignore-watch node_modules src/start.ts",
+    "build": "tsc"
   }
 }
