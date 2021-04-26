@@ -13,4 +13,4 @@ app.use(express_1.default.urlencoded({ extended: true }));
 app.use(ActionsRoutes_1.default);
 app.use(AuthRoutes_1.default);
 app.use(cors_1.default());
-app.listen(8080);
+app.listen(process.env.PORT || 8080);
