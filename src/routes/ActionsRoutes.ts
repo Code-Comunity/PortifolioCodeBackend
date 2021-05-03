@@ -6,7 +6,7 @@ const ActionsRoutes = Router()
 
 // All of Posts
 ActionsRoutes.get('/api/allposts', PostController.FindAllPosts) //Testado
-ActionsRoutes.get('/api/findpostbyid/:_id', PostController.FindPostById)
+ActionsRoutes.get('/api/allposts/:_id', PostController.FindPostById)
 ActionsRoutes.post('/api/createpost', PostController.CreatePost ) //Testado
 ActionsRoutes.delete('/api/deletepost/:_id', PostController.DeletePost) //Testado
 ActionsRoutes.put('/api/editpost/:_id', PostController.UpdatePost) //Testado
