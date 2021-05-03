@@ -5,7 +5,8 @@ import ContactController from '../controllers/ContactController'
 const ActionsRoutes = Router()
 
 // All of Posts
-ActionsRoutes.get('/api/allposts', PostController.FindPost) //Testado
+ActionsRoutes.get('/api/allposts', PostController.FindAllPosts) //Testado
+ActionsRoutes.get('/api/findpostbyid/:_id', PostController.FindPostById)
 ActionsRoutes.post('/api/createpost', PostController.CreatePost ) //Testado
 ActionsRoutes.delete('/api/deletepost/:_id', PostController.DeletePost) //Testado
 ActionsRoutes.put('/api/editpost/:_id', PostController.UpdatePost) //Testado

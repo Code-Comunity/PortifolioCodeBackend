@@ -30,7 +30,7 @@ class PostController {
 
     }
 
-    async FindPost(Req:Request, Res: Response){
+    async FindAllPosts(Req:Request, Res: Response){
            
         try{
           
@@ -40,6 +40,22 @@ class PostController {
         }catch(error){
 
             return Res.status(401).send({ message: `Desculpe, mas não foi possivel encontrar as postagens!` })
+
+        }
+    }
+
+    async FindPostById(Req:Request, Res: Response){
+
+        const id = Req.params
+           
+        try{
+          
+            const GetPost: any = await Post.findOne({"_id":id})
+            return Res.json(GetPost)
+
+        }catch(error){
+
+            return Res.status(401).send({ message: `Desculpe, mas não foi possivel encontrar o post!` })
 
         }
     }
