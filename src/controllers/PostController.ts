@@ -51,7 +51,7 @@ class PostController {
         try{
           
             const GetPost: any = await Post.findOne({"_id":id})
-            return Res.json(GetPost)
+            return Res.json([GetPost])
 
         }catch(error){
 
